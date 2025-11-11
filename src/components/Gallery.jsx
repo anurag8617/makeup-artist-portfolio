@@ -107,12 +107,12 @@ const Gallery = () => {
             ))}
           </div>
 
-          <button className="nav-button prev" onClick={showPrev}>
+          {/* <button className="nav-button prev" onClick={showPrev}>
             &#10094;
           </button>
           <button className="nav-button next" onClick={showNext}>
             &#10095;
-          </button>
+          </button> */}
         </div>
       )}
     </section>

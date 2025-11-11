@@ -7,7 +7,7 @@ import { MdDone } from "react-icons/md"; // Import the Done icon
 
 // --- IMPORTANT ---
 // Replace this with your 10-digit phone number (including country code, no '+')
-const YOUR_PHONE_NUMBER = "919907947260";
+const YOUR_PHONE_NUMBER = "918076826728";
 // -----------------
 
 // QuickEnquiryModal component (NO CHANGES HERE)

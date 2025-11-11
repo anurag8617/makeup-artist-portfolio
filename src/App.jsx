@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Achievements from "./components/Achievements";
 import FloatingButtons from "./components/FloatingButtons";
 import Certificates from "./components/Certificates";
+import Image from "./components/Image";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Gallery />
         <Certificates />
         <Achievements />
+        <Image />
         <Contact />
         <Footer />
       </main>
