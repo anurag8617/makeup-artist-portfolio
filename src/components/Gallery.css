@@ -1,0 +1,195 @@
+.gallery {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.gallery-sections-container {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.gallery-section {
+  margin-bottom: 3.5rem; /* Space between the two scrolling rows */
+}
+
+/* === AUTOMATIC SCROLLER STYLES === */
+.scrolling-wrapper {
+  width: 100%;
+  overflow: hidden; /* This hides the non-visible parts of the scroller */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.scrolling-content {
+  display: flex;
+  /* This is 200% because we have 3 images + 3 duplicated images = 6 total.
+    This makes each image take up 33.3% of the *original* 100% width.
+  */
+  width: 200%;
+  animation: marquee 40s linear infinite;
+}
+
+/* Pause animation on hover */
+.scrolling-wrapper:hover .scrolling-content {
+  animation-play-state: paused;
+}
+
+/* The marquee animation */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  /* We scroll -50% because that's the width of our original 3 images */
+  to { transform: translateX(-50%); }
+}
+
+.gallery-image {
+  /* This is 16.666% because it's 100% / 6 images in the 200% wide container.
+    This results in 3 images being visible at a time.
+  */
+  width: 16.666%;
+  height: 400px; /* Give the images a fixed height */
+  object-fit: cover; /* Ensures images fill the space without distortion */
+  padding: 0 0.75rem; /* Creates a gap between images */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  opacity: 0.8;
+}
+
+/* === TEXT FOR EACH SECTION === */
+.section-text {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--color-primary); /* Use our primary accent color */
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+}
+
+/* === LIGHTBOX (FULL-SCREEN MODAL) STYLES === */
+.lightbox-overlay {
+  position: fixed; /* Cover the whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Dark, semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease; /* Simple fade-in */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox-image {
+  max-width: 90vw; /* Max 90% of viewport width */
+  max-height: 90vh; /* Max 90% of viewport height */
+  object-fit: contain; /* Show the whole image without cropping */
+  border-radius: 4px;
+  cursor: default;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-button:hover {
+  transform: scale(1.1);
+}
+
+/* === Lightbox navigation buttons === */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 0.2rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  z-index: 1001;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.nav-button.prev {
+  left: 40px;
+}
+
+.nav-button.next {
+  right: 40px;
+}
+
+/* === Fullscreen Lightbox Scroll === */
+.lightbox-scroll-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.lightbox-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.lightbox-image {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  scroll-snap-align: center;
+  background-color: #000;
+  transition: transform 0.3s ease;
+}
+
+/* Keep existing close & nav styles */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 0.2rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  z-index: 1001;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.nav-button.prev {
+  left: 40px;
+}
+
+.nav-button.next {
+  right: 40px;
+}

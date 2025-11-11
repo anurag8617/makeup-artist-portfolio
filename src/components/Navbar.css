@@ -1,0 +1,118 @@
+/* Mobile-First Navbar Styles */
+.navbar {
+  width: 100%;
+  padding: 1.5rem 0;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-secondary-bg); /* UPDATED */
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+.nav-logo span {
+  color: var(--color-primary);
+}
+
+/* Mobile Menu (Hidden by default) */
+.nav-menu {
+  position: fixed;
+  left: -100%; /* Hides it off-screen */
+  top: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-bg);
+  list-style: none;
+  transition: left 0.4s ease-in-out; /* Animation */
+}
+
+/* Animation for mobile menu sliding in */
+.nav-menu.active {
+  left: 0;
+}
+
+.nav-item {
+  margin: 1.5rem 0;
+}
+
+.nav-link {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  color: var(--color-heading);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* Hamburger Icon */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 100; /* Ensures it's above the menu */
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-heading);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger animation to 'X' */
+.nav-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.nav-toggle.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* === DESKTOP STYLES === */
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none; /* Hide hamburger on desktop */
+  }
+
+  .nav-menu {
+    position: static; /* Resets from 'fixed' */
+    flex-direction: row;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    transition: none;
+  }
+  
+  .nav-item {
+    margin: 0 1.2rem;
+  }
+  
+  .nav-link {
+    font-size: var(--fs-body);
+    font-weight: 400;
+  }
+}

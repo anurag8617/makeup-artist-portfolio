@@ -1,0 +1,74 @@
+.services {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: var(--color-bg ); /* UPDATED */
+}
+
+/* We can reuse these from Gallery.css, but it's fine */
+/* to declare them again for component-specific styling */
+.section-subtitle {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--fs-small);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-title {
+  margin-bottom: 2.5rem;
+}
+
+/* === Mobile-First Grid (1 Column) === */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column on mobile */
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--color-secondary-bg); /* UPDATED - Was --color-bg */
+  padding: 2.5rem 1.5rem;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); */ /* REMOVE THIS */
+  border: 1px solid transparent; /* ADD THIS */
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary); /* UPDATED */
+  /* box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1); */ /* REMOVE THIS */
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-title {
+  font-size: var(--fs-h3);
+  font-weight: 500; /* Slightly lighter than main heading */
+  font-family: var(--font-heading);
+  margin-bottom: 0.75rem;
+}
+
+.service-description {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+
+/* === DESKTOP STYLES === */
+@media (min-width: 768px) {
+  .services {
+    padding: 6rem 0;
+  }
+  
+  /* On desktop, switch to 3 columns */
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}

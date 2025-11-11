@@ -1,0 +1,97 @@
+.achievements {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: var(--color-bg); /* Main dark background */
+}
+
+/* Reusing section-subtitle and section-title from other components */
+
+/* === Mobile-First Grid (1 Column) === */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem; /* Space between items */
+  max-height: 600px;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  text-align: left; /* Align text to the left */
+}
+
+.achievement-item {
+  display: flex; /* Icon and text side-by-side */
+  align-items: center;
+  background: var(--color-secondary-bg); /* Dark purple background */
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-primary); /* Highlight border */
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(166, 77, 121, 0.1);
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+}
+
+.achievement-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  color: var(--color-heading);
+  margin-bottom: 0.25rem;
+}
+
+.achievement-source {
+  font-family: var(--font-body);
+  font-size: 0.95rem; /* Slightly smaller */
+  color: var(--color-text);
+  font-weight: 300;
+}
+
+/* === DESKTOP STYLES === */
+@media (min-width: 768px) {
+  .achievements {
+    padding: 6rem 0;
+  }
+  
+  /* On desktop, switch to 2 columns */
+  .achievements-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.achievement-images {
+  margin-top: 3rem;
+  display: flex;
+  overflow-x: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.achievement-image {
+  flex: 0 0 auto;
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.achievement-image:hover {
+  transform: scale(1.05);
+}
+
+/* Make sure it looks good on mobile */
+@media (max-width: 768px) {
+  .achievement-image {
+    width: 160px;
+    height: 220px;
+  }
+}

@@ -1,0 +1,100 @@
+.contact {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.contact-description {
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* === Mobile-First Form (1 Column) === */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr; /* Stacks all inputs */
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-heading);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: var(--fs-body);
+  font-family: var(--font-body);
+  border: 1px solid var(--color-accent); /* UPDATED */
+  border-radius: 5px;
+  background-color: var(--color-secondary-bg); /* UPDATED */
+  color: var(--color-text); /* ADD THIS */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(166, 77, 121, 0.2); /* UPDATED */
+}
+
+.submit-btn {
+  /* We can reuse the button style from the Hero section */
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--fs-small);
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(213, 138, 148, 0.4);
+  border: none;
+  cursor: pointer;
+  width: 100%; /* Full width on mobile */
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(213, 138, 148, 0.6);
+}
+
+
+/* === DESKTOP STYLES === */
+@media (min-width: 768px) {
+  .contact-form {
+    /* Creates 2 columns */
+    grid-template-columns: 1fr 1fr; 
+  }
+
+  /* Makes the message and button span both columns */
+  .form-group.full-width {
+    grid-column: 1 / -1; /* Spans from first to last grid line */
+  }
+
+  .submit-btn {
+    width: auto; /* Auto width on desktop */
+    margin: 0 auto; /* Centers the button */
+  }
+
+  .contact {
+    padding: 6rem 0;
+  }
+}
