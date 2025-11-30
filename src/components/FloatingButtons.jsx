@@ -7,7 +7,9 @@ import { MdDone } from "react-icons/md"; // Import the Done icon
 
 // --- IMPORTANT ---
 // Replace this with your 10-digit phone number (including country code, no '+')
-const YOUR_PHONE_NUMBER = "918076826728";
+// const YOUR_PHONE_NUMBER = "918076826728";
+// const YOUR_PHONE_NUMBER = "917810968779";
+const YOUR_PHONE_NUMBER = "918617653035";
 // -----------------
 
 // QuickEnquiryModal component (NO CHANGES HERE)
@@ -116,7 +118,7 @@ const FloatingButtons = () => {
 
           {/* CALL BUTTON */}
           <a
-            href={`tel:${YOUR_PHONE_NUMBER}`}
+            href={`tel:+${YOUR_PHONE_NUMBER}`}
             className={`fab-icon call ${callDone ? "done" : ""}`}
             onClick={handleCallClick}
           >

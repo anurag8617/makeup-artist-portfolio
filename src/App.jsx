@@ -9,6 +9,7 @@ import Achievements from "./components/Achievements";
 import FloatingButtons from "./components/FloatingButtons";
 import Certificates from "./components/Certificates";
 import Image from "./components/Image";
+import ReelsGrid from "./components/ReelsGrid";
 
 function App() {
   return (
@@ -18,10 +19,11 @@ function App() {
       <main>
         <Hero />
         <Services />
+        <Image />
         <Gallery />
+        <ReelsGrid />
         <Certificates />
         <Achievements />
-        <Image />
         <Contact />
         <Footer />
       </main>

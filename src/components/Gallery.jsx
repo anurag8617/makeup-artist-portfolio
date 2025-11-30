@@ -13,7 +13,7 @@ const img4 =
 const img5 =
   "https://scontent.cdninstagram.com/v/t51.75761-15/503969680_17849458611482026_780299532998914788_n.webp?_nc_cat=103&ig_cache_key=MzY1MjM1NDE5MTYzMjM0NTUwOQ%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=G0cvKmk3hBkQ7kNvwHwrRgT&_nc_oc=AdmaQL3zUZOGVxBSRuy9Y6yV9M-PYTYQ0NpfK-ERAi5zhbKFbA21u-xCbxT65XXmoZMDMvf2KdPD8NWwcpTUq9CN&_nc_ad=z-m&_nc_cid=2034&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=02lE-gHGC0khu6-bkPXnSw&oh=00_AfirqJzcyOfTBRiR6-Lwg0d4RK37X2WLahHPjjTm6lgalw&oe=69191943";
 const img6 =
-  "https://lh3.googleusercontent.com/sitesv/AAzXCkeEZfKvYCjs40XPgGjbZZ09EXSThiKkdWpCQDGwRQkYpPKn6TjPdmhWEwxbFG9CBWkeknYYS04dimifl-pYA2etIO_Dw7obfczTlkjH2Lf349KJ_APh4o_Vx-2HxTnGPmiqjQMffMavTbXsPovZvMRIVs6KV3aTMM0Ljp5JILvp2h3Sxl6qGqq4OBEe93YzTcftk1VHFMdR8nUX2es-9mnLAWY9ebzfMXqsxJw=w1280";
+  "https://scontent.cdninstagram.com/v/t51.82787-15/532361594_17964443534952837_8744445225690541801_n.webp?_nc_cat=109&ig_cache_key=MzY5OTIxNzY5NjI3NDk3NjI1OQ%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=NFv4kgwhaswQ7kNvwFaclq9&_nc_oc=Adn0otseO3bdna6Kk1CsbxMmGod2rfRkuX7rAFjbeWMg7jTCc0lfRhJxQyPlYB7_8WuoaMIcBAGeE4rZ6v23FAOI&_nc_ad=z-m&_nc_cid=2034&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=NRu-VFexdXLtAV2jkO6Gug&oh=00_AfgfDFJDlTTEiNY_EOGdeqEtNFV0hmAmCuzsZd90qt8AYQ&oe=691A000F";
 
 const gallerySections = [
   { id: 1, title: "Bridal & Wedding", images: [img1, img2, img3] },
@@ -24,7 +24,7 @@ const ScrollingRow = ({ images, onImageClick }) => {
   const duplicated = [...images, ...images];
   return (
     <div className="scrolling-wrapper">
-      <div className="scrolling-content">
+      <div className="scrolling-content">x`x`
         {duplicated.map((src, i) => (
           <img
             key={i}
