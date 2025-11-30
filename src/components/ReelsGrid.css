@@ -1,72 +1,100 @@
-/* * This container creates the 3-column grid.
- * We set a max-width for desktop viewing, but it's
- * designed to be 100% width on mobile.
- */
-.reels-grid-container {
-  display: grid;
-
-  /* Create 3 equal-width columns */
-  grid-template-columns: repeat(3, 1fr);
-
-  /* This is the key: auto-rows are set to the width of a column.
-     On a full-width mobile screen, 1fr is 33.33vw.
-     We set the row height to match, creating perfect squares.
-     'calc(33.33vw - 2px)' accounts for the 3px gap.
-     We use minmax to set a minimum and maximum size.
-  */
-  grid-auto-rows: minmax(100px, calc(33.33vw - 2px));
-
-  /* This packs items into the first available space, 
-     which is essential for the masonry layout. */
-  grid-auto-flow: dense;
-
-  /* The gap between items */
-  gap: 3px;
-
-  width: 100%;
-  max-width: 900px; /* Good for desktop preview */
-  margin: 0 auto;
+/* Page Wrapper to ensure it takes full screen and dark background */
+.reels-page {
   background-color: #000;
+  min-height: 100vh;
+  width: 100%;
+  padding-bottom: 3rem;
+  animation: fadeIn 0.4s ease-out;
 }
 
-/* * This is the individual item in the grid.
- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header with Back Button */
+.reels-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.85); /* Slightly transparent */
+  backdrop-filter: blur(10px); /* Blur effect like iOS */
+  z-index: 100;
+  border-bottom: 1px solid #222;
+}
+
+.reels-header h2 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: sans-serif; /* Cleaner font for UI */
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-weight: 500;
+}
+
+/* Grid Styles */
+.reels-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  /* Make rows exactly 1/3 of screen width for perfect squares */
+  grid-auto-rows: calc(33.33vw - 1px);
+
+  grid-auto-flow: dense;
+
+  /* TIGHT GAP for cleaner look */
+  gap: 1px;
+
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .grid-item {
   position: relative;
   overflow: hidden;
-  background-color: #222; /* Placeholder background */
-
-  /* By default, all items span 1 row and 1 column */
+  background-color: #111;
   grid-row: span 1;
   grid-column: span 1;
 }
 
-/* * This class makes an item rectangular (1x2).
- * It tells the item to span 2 rows instead of 1.
- */
 .grid-item--rectangle {
   grid-row: span 2;
 }
 
-/* * This styles the actual media (image/video)
- * to fill its container perfectly.
- */
 .grid-item video,
 .grid-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* This is crucial: clips, doesn't stretch */
+  object-fit: cover;
+  display: block; /* Removes tiny bottom gap on some browsers */
 }
 
-/* * Styles the little video icon
- */
 .media-icon {
   position: absolute;
   top: 8px;
   right: 8px;
   color: white;
   font-size: 14px;
-  font-weight: bold;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
-  pointer-events: none; /* So it doesn't block clicks */
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  pointer-events: none;
 }

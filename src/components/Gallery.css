@@ -1,6 +1,7 @@
 .gallery {
   /* padding: 4rem 0; */
   text-align: center;
+  position: relative;
 }
 
 .gallery-sections-container {
@@ -16,15 +17,24 @@
 .scrolling-wrapper {
   width: 100%;
   overflow: hidden; /* This hides the non-visible parts of the scroller */
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
 .scrolling-content {
   display: flex;
-  /* This is 200% because we have 3 images + 3 duplicated images = 6 total.
-    This makes each image take up 33.3% of the *original* 100% width.
-  */
   width: 200%;
   animation: marquee 40s linear infinite;
 }
@@ -36,15 +46,15 @@
 
 /* The marquee animation */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  /* We scroll -50% because that's the width of our original 3 images */
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .gallery-image {
-  /* This is 16.666% because it's 100% / 6 images in the 200% wide container.
-    This results in 3 images being visible at a time.
-  */
   width: 16.666%;
   height: 400px; /* Give the images a fixed height */
   object-fit: cover; /* Ensures images fill the space without distortion */
@@ -69,6 +79,34 @@
   font-size: var(--fs-h3);
 }
 
+/* === SEE MORE BUTTON === */
+.gallery-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.see-more-btn {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-heading);
+  padding: 0.8rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+}
+
+.see-more-btn:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(166, 77, 121, 0.4);
+}
+
 /* === LIGHTBOX (FULL-SCREEN MODAL) STYLES === */
 .lightbox-overlay {
   position: fixed; /* Cover the whole screen */
@@ -86,8 +124,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .lightbox-image {
@@ -106,38 +148,11 @@
   color: white;
   cursor: pointer;
   transition: transform 0.2s ease;
+  z-index: 1002;
 }
 
 .close-button:hover {
   transform: scale(1.1);
-}
-
-/* === Lightbox navigation buttons === */
-.nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: none;
-  font-size: 3rem;
-  cursor: pointer;
-  padding: 0.2rem 1rem;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-  z-index: 1001;
-}
-
-.nav-button:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.nav-button.prev {
-  left: 40px;
-}
-
-.nav-button.next {
-  right: 40px;
 }
 
 /* === Fullscreen Lightbox Scroll === */
@@ -164,32 +179,4 @@
   scroll-snap-align: center;
   background-color: #000;
   transition: transform 0.3s ease;
-}
-
-/* Keep existing close & nav styles */
-.nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: none;
-  font-size: 3rem;
-  cursor: pointer;
-  padding: 0.2rem 1rem;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-  z-index: 1001;
-}
-
-.nav-button:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.nav-button.prev {
-  left: 40px;
-}
-
-.nav-button.next {
-  right: 40px;
 }

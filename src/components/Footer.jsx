@@ -20,7 +20,7 @@ const Footer = () => {
             <FaInstagram />
           </a>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/makeoveralkasharma"
             target="_blank"
             rel="noopener noreferrer"
             className="social-link"
